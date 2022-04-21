@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Baramex">
+    <meta name="description"
+        content="Site de présentation de la photographe Eliyah où vous pouvez prendre rendez-vous pour un shooting photo ou une séance photo.">
+    <meta name="keywords"
+        content="photo, photographie, lesyeuxdeliyah, séance, séance photo, shooting photo, photographe, genève, haute-savoie, france, suisse, thonon-les-bains">
+    <meta name="author" content="Baramex">
+    <link rel="icon" href="/images/favicon.png">
+    <title>Les Yeux D'Eliyah</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <script src="/js/script.js"></script>
+
+    <div id="hidden-tab" class="hidden-tab"></div>
+
+    <div role="alert" class="popup popup-status" id="popup-success">
+        <img src="/images/valid.png">
+        <p class="text"></p>
+        <button class="cbutton valid-button" id="valid-success" style="padding: 10px 20px;">Ok</button>
+    </div>
+
+    <div role="alert" class="popup popup-status" id="popup-error">
+        <img src="/images/error.png">
+        <p class="text"></p>
+        <button class="cbutton cancel-button" id="valid-error" style="padding: 10px 20px;">Ok</button>
+    </div>
+
+    <header id="main-header">
+        <a id="instagram" href="https://www.instagram.com/les_yeux_d.eliyah/" target="BLANK">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+        </a>
+        <div class="right">
+            <a class="button" href="#tarifs">Tarifs</a>
+            <a class="separator">•</a>
+            <a class="button" href="/login#login" id="login-hl">Se connecter</a>
+        </div>
+        <h1 id="title">Les Yeux D'Eliyah</h1>
+    </header>
+
+    <section id="main">
+        <p id="slogan">
+            Photographie<br /><span style="color: rgb(255, 158, 252);">artistique</span>.<br />
+            Photographe<br />individuelle.
+        </p>
+        <button id="tomeet" onclick="window.location.href = '#appointment'">Réserver
+            séance<br />photo</button>
+        <svg id="wave1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280">
+            <path fill="#EAEAE8" fill-opacity="1"
+                d="M0,64L48,58.7C96,53,192,43,288,58.7C384,75,480,117,576,154.7C672,192,768,224,864,218.7C960,213,1056,171,1152,144C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </section>
+
+    <section id="info">
+        <div class="grid">
+            <div class="box">
+                <img src="/images/bus.png">
+                <h2>Zone d'action</h2>
+                <p>Déplacement dans toutes les zones de Thono-les-Bains jusqu'à Genève.</p>
+            </div>
+            <div class="box">
+                <img src="/images/retouch.png">
+                <h2>Qualité picturale</h2>
+                <p>Toutes les photos sont retouchés une par une avant l'envoie en haute définition sans compresssion.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="pictures">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 187" style="margin-top: -1px;">
+            <path fill="#EAEAE8" fill-opacity="1"
+                d="M0,64L26.7,69.3C53.3,75,107,85,160,106.7C213.3,128,267,160,320,176C373.3,192,427,192,480,170.7C533.3,149,587,107,640,106.7C693.3,107,747,149,800,160C853.3,171,907,149,960,122.7C1013.3,96,1067,64,1120,69.3C1173.3,75,1227,117,1280,128C1333.3,139,1387,117,1413,106.7L1440,96L1440,0L1413.3,0C1386.7,0,1333,0,1280,0C1226.7,0,1173,0,1120,0C1066.7,0,1013,0,960,0C906.7,0,853,0,800,0C746.7,0,693,0,640,0C586.7,0,533,0,480,0C426.7,0,373,0,320,0C266.7,0,213,0,160,0C106.7,0,53,0,27,0L0,0Z">
+            </path>
+        </svg>
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide">
+                    <img src="/images/images/0.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/1.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/2.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/3.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/4.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/5.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/6.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/7.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/9.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/11.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/12.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/13.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/14.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/15.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/16.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/17.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/18.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/19.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/20.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/21.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/22.jpg">
+                </div>
+
+                <div class="slide">
+                    <img src="/images/images/0.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/1.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/2.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/3.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/4.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/5.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/6.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/7.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/9.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/11.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/12.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/13.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/14.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/15.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/16.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/17.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/18.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/19.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/20.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/21.jpg">
+                </div>
+                <div class="slide">
+                    <img src="/images/images/22.jpg">
+                </div>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 32 1440 188" style="margin-bottom: -5px;">
+            <path fill="#EAEAE8" fill-opacity="1"
+                d="M0,32L26.7,37.3C53.3,43,107,53,160,74.7C213.3,96,267,128,320,160C373.3,192,427,224,480,213.3C533.3,203,587,149,640,144C693.3,139,747,181,800,186.7C853.3,192,907,160,960,149.3C1013.3,139,1067,149,1120,160C1173.3,171,1227,181,1280,186.7C1333.3,192,1387,192,1413,192L1440,192L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z">
+            </path>
+        </svg>
+    </section>
+    <section id="tarifs">
+        <h1>Tarifs</h1>
+        <div class="container">
+            <div class="card">
+                <div class="content">
+                    <div class="front">
+                        <img src="/images/basic.png">
+                        <h2>Formule basique</h2>
+                        <p>20 €</p>
+                    </div>
+                    <div class="back">
+                        <h2>Formule basique</h2>
+                        <ul>
+                            <li><img src="/images/clock.png"> 1 heure de séance</li>
+                            <li><img src="/images/picture.png"> 20 photos retouchées</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <div class="front">
+                        <img src="/images/premium.png">
+                        <h2>Formule premium</h2>
+                        <p>35 €</p>
+                    </div>
+                    <div class="back">
+                        <h2>Formule premium</h2>
+                        <ul>
+                            <li><img src="/images/clock.png"> 1h30 de séance</li>
+                            <li><img src="/images/picture.png"> 50 photos retouchées</li>
+                            <li><img src="/images/printer.png"> 2 photos imprimées</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <div class="front">
+                        <img src="/images/full.png">
+                        <h2>Formule complète</h2>
+                        <p>50 €</p>
+                    </div>
+                    <div class="back">
+                        <h2>Formule complète</h2>
+                        <ul>
+                            <li><img src="/images/clock.png"> 2 heures de séance</li>
+                            <li><img src="/images/picture.png"> 100 photos retouchées</li>
+                            <li><img src="/images/printer.png"> 10 photos imprimées</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section id="appointment">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 156" style="margin-top: -1px;">
+            <path fill="#EAEAE8" fill-opacity="1"
+                d="M0,32L48,64C96,96,192,160,288,154.7C384,149,480,75,576,64C672,53,768,107,864,128C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+            </path>
+        </svg>
+        <h1>Réserver une séance photo</h1>
+        <div role="form" class="form">
+            <span style="font-style: italic;color: rgb(255, 144, 144);">* Champs obligatoirs</span>
+            <div class="input-container" style="grid-column: 1;">
+                <input type="text" id="firstname" placeholder=" " maxlength="100">
+                <label for="firstname">Prénom *</label>
+            </div>
+
+            <div class="input-container" style="grid-column: 2;">
+                <input type="text" id="lastname" placeholder=" " maxlength="100">
+                <label for="lastname">Nom *</label>
+            </div>
+
+            <div class="input-container" style="grid-column: 1 / 3;">
+                <input type="tel" id="tel" placeholder=" " maxlength="100">
+                <label for="tel">N° de téléphone *</label>
+            </div>
+
+            <div class="input-container" style="grid-column: 1 / 3;">
+                <input type="email" id="email" placeholder=" " maxlength="100">
+                <label for="email">Adresse email *</label>
+            </div>
+
+            <div class="input-container" style="grid-column: 1 / 3;">
+                <select type="" id="formule">
+                    <option value="">-- sélectionner une option --</option>
+                    <option value="basic">Basique</option>
+                    <option value="premium">Premium</option>
+                    <option value="full">Complète</option>
+                </select>
+                <label for="formule">Formule *</label>
+            </div>
+
+            <div class="input-container" style="grid-column: 1;">
+                <input type="date" id="date" placeholder=" ">
+                <label for="date">Date *</label>
+            </div>
+
+            <div class="input-container" style="grid-column: 2;">
+                <input type="time" id="time" placeholder=" ">
+                <label for="time">Heure *</label>
+            </div>
+
+            <div class="input-container" style="grid-column: 1 / 3;">
+                <input type="text" id="place" placeholder=" " maxlength="100">
+                <label for="place">Lieu de rendez-vous *</label>
+            </div>
+
+            <div class="input-container" style="grid-column: 1 / 3;">
+                <textarea id="message" placeholder=" " maxlength="1000"></textarea>
+                <label for="message">Message</label>
+            </div>
+
+            <span style="font-style: italic;color: #cdcdcd;grid-column: 1/3;">En cliquant sur
+                le bouton, vous acceptez
+                les <a style="color: #dadada;" href="/conditions#conditions">conditions</a>.</span>
+            <input type="button" value="Valider" onclick="appointment();">
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 1440 124" style="margin-bottom: -5px;">
+            <path fill="#EAEAE8" fill-opacity="1"
+                d="M0,128L48,122.7C96,117,192,107,288,128C384,149,480,203,576,197.3C672,192,768,128,864,133.3C960,139,1056,213,1152,218.7C1248,224,1344,160,1392,128L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </section>
+    <footer>
+        <p class="left" style="margin-top: 0;"><a style="color: #3b3b3b;" href="/conditions#conditions">conditions
+                d'utilisation</a></p>
+        <p
+            style="font-family: hammer;font-size: 20px;position: absolute;left: 50%;transform: translateX(-50%);margin-top: 0;">
+            -
+            Les Yeux D'Éliyah -</p>
+        <p class="right" style="margin-top: 0;">Développé par <a href="http://baramex.me" target="BLANK"
+                style="color: #3b3b3b;">baramex</a>
+        </p>
+    </footer>
+</body>
+
+</html>

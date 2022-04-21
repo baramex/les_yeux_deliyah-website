@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Yeux D'Eliyah - mon compte</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/images/favicon.png">
+</head>
+
+<body>
+    <script src="/js/script.js"></script>
+    <script src="/js/account.js"></script>
+
+    <div id="hidden-tab" class="hidden-tab"></div>
+
+    <div role="alert" class="popup popup-status" id="popup-success">
+        <img src="/images/valid.png">
+        <p class="text"></p>
+        <button class="cbutton valid-button" id="valid-success" style="padding: 10px 20px;">Ok</button>
+    </div>
+
+    <div role="alert" class="popup popup-status" id="popup-error">
+        <img src="/images/error.png">
+        <p class="text"></p>
+        <button class="cbutton cancel-button" id="valid-error" style="padding: 10px 20px;">Ok</button>
+    </div>
+
+    <div role="alert" class="popup" id="popup-valid-app">
+        <h1>Valider la commande #<span class="id-app"></span></h1>
+        <span style="font-style: italic;color: #3b3b3b;font-family: sans-serif;">Valider la commande enverra un email à
+            la personne, vous pouvez ajouter un message facultatif dans le mail.</span>
+        <div role="form" class="form" style="margin-top: 20px;">
+            <div class="input-container" style="grid-column: 1 / 3;">
+                <textarea id="message" placeholder=" " maxlength="1000"></textarea>
+                <label for="message">Message</label>
+            </div>
+            <input type="button" class="cbutton valid-button" value="Confirmer" id="confirm-valid-app">
+            <input type="button" class="cbutton cancel-button" value="Annuler" id="cancel-valid-app">
+        </div>
+    </div>
+
+    <div role="alert" class="popup" id="popup-cancel-app">
+        <h1>Annuler la commande #<span class="id-app"></span></h1>
+        <span style="font-style: italic;color: #3b3b3b;font-family: sans-serif;">Annuler la commande enverra un email à
+            la personne, vous pouvez ajouter un message facultatif dans le mail pour lui annonce la raison, comme par
+            exemple pour non disponibilité à cette date.</span>
+        <div role="form" class="form" style="margin-top: 20px;">
+            <div class="input-container" style="grid-column: 1 / 3;">
+                <textarea id="message-1" placeholder=" " maxlength="1000"></textarea>
+                <label for="message-1">Message</label>
+            </div>
+            <input type="button" class="cbutton valid-button" value="Confirmer" id="confirm-cancel-app">
+            <input type="button" class="cbutton cancel-button" value="Annuler" id="cancel-cancel-app">
+        </div>
+    </div>
+
+    <header id="main-header">
+        <a id="instagram" href="https://www.instagram.com/les_yeux_d.eliyah/" target="BLANK">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+        </a>
+        <div class="right">
+            <a class="button" href="/#tarifs">Tarifs</a>
+            <a class="separator">•</a>
+            <a class="button" href="/">Accueil</a>
+        </div>
+        <h1 id="title">Les Yeux D'Eliyah</h1>
+    </header>
+
+    <section id="main">
+        <p id="slogan">
+            Photographie<br /><span style="color: rgb(255, 158, 252);">artistique</span>.<br />
+            Photographe<br />individuelle.
+        </p>
+        <button id="tomeet" onclick="window.location.href = '/#appointment'">Réserver
+            séance<br />photo</button>
+        <svg id="wave1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 280">
+            <path fill="#EAEAE8" fill-opacity="1"
+                d="M0,64L48,58.7C96,53,192,43,288,58.7C384,75,480,117,576,154.7C672,192,768,224,864,218.7C960,213,1056,171,1152,144C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </section>
+    <section id="myaccount">
+        <h1 id="name"></h1>
+        <div id="appointments">
+            <header>
+                <h2>Demandes de séance photo</h2>
+            </header>
+            <div class="container"></div>
+        </div>
+        <button id="disconnect" onclick="disconnect();">Se déconnecter</button>
+    </section>
+    <footer>
+        <p class="left" style="margin-top: 0;"><a style="color: #3b3b3b;" href="/conditions#conditions">conditions
+                d'utilisation</a></p>
+        <p
+            style="font-family: hammer;font-size: 20px;position: absolute;left: 50%;transform: translateX(-50%);margin-top: 0;">
+            -
+            Les Yeux D'Éliyah -</p>
+        <p class="right" style="margin-top: 0;">Développé par <a href="http://baramex.me" target="BLANK"
+                style="color: #3b3b3b;">baramex</a>
+        </p>
+    </footer>
+</body>
+
+</html>
