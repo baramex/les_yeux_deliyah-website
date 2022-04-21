@@ -49,7 +49,8 @@ header#main-header {
 }
 
 header#main-header.banner {
-    background-color: rgba(20, 20, 20, .95);
+    background-color: rgba(20, 20, 20, .98);
+    box-shadow: 0 0 50px 0 rgba(20, 20, 20, .8);
 }
 
 header#main-header a {
@@ -605,15 +606,21 @@ button#disconnect:hover {
     box-shadow: 100px 100px 100px -100px #bd3c3c inset;
 }
 
+#main-header.banner #title {
+    color: #e4e9f7;
+}
+
 #title {
     position: absolute;
     font-size: 45px;
-    color: #e4e9f7;
+    color: #161616;
+    filter: drop-shadow(2px 4px 6px #141414);
     font-family: "updock";
     left: 50%;
     margin: 0;
     transform: translateX(-50%);
     top: 0;
+    transition-duration: .4s;
 }
 
 #tarifs .container {
