@@ -24,7 +24,7 @@ body {
 }
 
 section#main {
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url("/images/main.jpeg");
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url("/images/main.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
