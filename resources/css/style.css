@@ -494,6 +494,7 @@ svg#wave1 {
 }
 
 a.button {
+    filter: drop-shadow(2px 4px 5px rgba(20, 20, 20, .7));
     display: inline-flex;
     position: relative;
     font-family: "abrilfatface";
@@ -606,15 +607,11 @@ button#disconnect:hover {
     box-shadow: 100px 100px 100px -100px #bd3c3c inset;
 }
 
-#main-header.banner #title {
-    color: #e4e9f7;
-}
-
 #title {
     position: absolute;
     font-size: 45px;
-    color: #161616;
-    filter: drop-shadow(2px 4px 6px #141414);
+    color: #fbf7ff;
+    filter: drop-shadow(2px 4px 5px #141414);
     font-family: "updock";
     left: 50%;
     margin: 0;
