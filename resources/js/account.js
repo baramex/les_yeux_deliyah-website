@@ -13,7 +13,7 @@ window.addEventListener("load", async () => {
         details.innerHTML = `
         <summary>
             <p class="arrow">➤</p>
-            <h2>${String(app.id + 1).padStart(3, "0")}</h2>
+            <h2>${String(app.id).padStart(3, "0")}</h2>
             <span class="info">${app.firstname} ${app.lastname}</span>
             <span class="info" style="border-right: 1px solid #5a5a5a;padding-right: 5px;">${app.tel}</span>
             <div class="status status${app.status}"></div><span class="info" style="border: none;margin: 0;">${["Demande validation", "Programmée", "Annulée", "Terminée"][app.status]}</span>
@@ -107,7 +107,7 @@ function cancelAppointment(id) {
 
     var popup = document.getElementById("popup-cancel-app");
 
-    popup.querySelector(".id-app").innerText = String(id + 1).padStart(3, "0");
+    popup.querySelector(".id-app").innerText = String(id).padStart(3, "0");
     document.getElementById("confirm-cancel-app").onclick = () => confirmCancelAppointment(id);
     document.getElementById("cancel-cancel-app").onclick = () => closePopup("popup-cancel-app");
 }
@@ -139,7 +139,7 @@ function validAppointment(id) {
 
     var popup = document.getElementById("popup-valid-app");
 
-    popup.querySelector(".id-app").innerText = String(id + 1).padStart(3, "0");
+    popup.querySelector(".id-app").innerText = String(id).padStart(3, "0");
     document.getElementById("confirm-valid-app").onclick = () => confirmValidAppointment(id);
     document.getElementById("cancel-valid-app").onclick = () => closePopup("popup-valid-app");
 }
