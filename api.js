@@ -116,7 +116,7 @@ router.post("/appointment", async (req, res) => {
         secure: false, // true for 465, false for other ports
         auth: {
             user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PAS,
+            pass: process.env.MAIL_PASS,
         }
     });
 
@@ -198,7 +198,7 @@ router.post("/appointment/:id/valid", async (req, res) => {
         secure: false, // true for 465, false for other ports
         auth: {
             user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PAS,
+            pass: process.env.MAIL_PASS,
         }
     });
 
@@ -255,7 +255,7 @@ router.post("/appointment/:id/cancel", async (req, res) => {
         secure: false, // true for 465, false for other ports
         auth: {
             user: process.env.MAIL_USER,
-            pass: process.env.MAIL_PAS,
+            pass: process.env.MAIL_PASS,
         }
     });
 
