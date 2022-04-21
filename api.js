@@ -15,6 +15,7 @@ const express = require("express");
 const router = express.Router();
 
 router.use("*", (req, res, next) => {
+    console.log(req.headers.origin, req.headers.referer, process.env.URL, req.headers["sec-fetch-site"])
     if (!(req.headers.origin || req.headers.referer || "").startsWith(process.env.URL) || req.headers["sec-fetch-site"] != "same-origin") return res.sendStatus(403);
     next();
 });
