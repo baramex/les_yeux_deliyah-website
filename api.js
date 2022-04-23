@@ -22,7 +22,7 @@ router.use("*", (req, res, next) => {
 router.post("/login", (req, res) => {
     var { username, password } = req.body;
     if (!username || !password) return res.status(400).send("UsernameOrPasswordNull");
-    if (username.length > 24 || password.length > 24) return res.status(400).send("WrongRequest");
+    if (username.length > 50 || password.length > 50) return res.status(400).send("WrongRequest");
 
     var user = database.get("users").find({ username }).value();
     if (!user) return res.status(403).send("UsernameOrPasswordInvalide");
