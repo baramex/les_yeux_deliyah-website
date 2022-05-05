@@ -27,19 +27,6 @@ server.listen(PORT, () => {
     console.log("Server started in " + PORT);
 });
 
-server.get("*", (req, res, next) => {
-    var token = req.cookies.token;
-    if (!token) return next();
-    var session = database.get("sessions").find({ token }).value();
-    var user = getUser(session.userID);
-    if (!session || checkExpired(session.date + session.expireIn * 1000) || !user) {
-        res.clearCookie("token");
-        return next();
-    }
-    res.user = user;
-    return next();
-});
-
 server.get("/", (req, res) => {
     return res.sendFile(path.join(__dirname, "resources", "pages", "index.html"));
 });
